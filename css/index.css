@@ -1,0 +1,131 @@
+.page {
+  display: flex;
+  justify-content: center;
+}
+
+.field {
+  position: relative;
+  display: flex;
+}
+
+.field__tiles {
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.field__barriers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.field__selection-pane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.field__controls {
+  width: 230px;
+  height: inherit;
+  border-radius: 5px;
+  border: 1px solid #c2c2c2;
+  background-color: #ececec;
+}
+
+.controls {
+  padding: 150px 25px 25px;
+}
+
+.controls__list {
+  margin: 0;
+  padding: 0;
+}
+
+.controls__item {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.controls__item-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.controls__item-input {
+  display: block;
+  margin-right: 10px;
+}
+
+.controls__item-color {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  box-shadow: 0px 0px 2px 0px #000000;
+  border-radius: 50%;
+}
+
+.controls__buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.controls__button {
+  padding: 10px;
+  border: 1px solid #07575B;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.active-cell {
+  position: relative;
+  cursor: pointer;
+}
+
+.active-cell__selection {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.active-cell__selection:before {
+  content: '';
+  box-sizing: border-box;
+  display: block;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid #000000;
+  background: repeating-linear-gradient(-55deg, #494949, #494949 10px, rgba(198, 198, 198, 0.6) 10px, rgba(198, 198, 198, 0.6) 20px);
+}
+
+.active-cell__selection_visible {
+  opacity: .7;
+}
+
+.active-cell__selection_top {
+  transform: rotate(0deg);
+}
+
+.active-cell__selection_right {
+  transform: rotate(90deg);
+}
+
+.active-cell__selection_bottom {
+  transform: rotate(180deg);
+}
+
+.active-cell__selection_left {
+  transform: rotate(270deg);
+}
+
