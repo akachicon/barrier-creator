@@ -27,7 +27,7 @@ export class Field {
       for (let j = 0; j < CELLS_BY_SIDE; j++) {
         this.cells[i][j] = new Cell({
           render: (barriers) => {
-            this.renderCell(i, j, barriers);
+            this.renderCell(j, i, barriers);
           },
         });
       }
@@ -57,7 +57,7 @@ export class Field {
 
     if (!activeCell) return;
 
-    const cell = this.cells[activeCell.x][activeCell.y];
+    const cell = this.cells[activeCell.y][activeCell.x];
     cell.toggleBarrier(type, direction);
     cell.render();
   }
@@ -191,5 +191,24 @@ export class Field {
     this.ctx.clearRect(0, 0, this.fieldSide, this.fieldSide);
     this.activeCell = null;
     this.activeCellElement = null;
+  }
+
+  getBarriers() {
+    const barriers = [];
+
+    for (let i = 0; i < CELLS_BY_SIDE; i++) {
+      for (let j = 0; j < CELLS_BY_SIDE; j++) {
+        const cellBarriers = this.cells[i][j].barriers;
+        const cellBarriersList = Object.entries(cellBarriers)
+          .filter(([_, data]) => data !== null)
+          .map(([direction, data]) => ({
+            direction: Number(direction),
+            position: { x: j, y: i },
+            type: data.type,
+          }));
+        barriers.push(...cellBarriersList);
+      }
+    }
+    return barriers;
   }
 }

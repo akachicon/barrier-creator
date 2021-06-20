@@ -1,3 +1,5 @@
+import { saveAs } from 'file-saver';
+import { Exporter } from './exporter';
 import { Field } from './field';
 import { minMax, getFieldSide } from './utils';
 import {
@@ -89,6 +91,16 @@ const field = new Field({
   canvas: barriersCanvas,
   canvasOverlay: selectionPane,
   getBarrierType,
+});
+const exporter = new Exporter(field);
+
+const exportButton = document.getElementById('export-button');
+exportButton.addEventListener('click', () => {
+  const exportString = exporter.getExportString();
+  const blob = new Blob([exportString.replace(/([^\r])\n/g, '$1\r\n')], {
+    type: 'text/plain;charset=utf-8',
+  });
+  saveAs(blob, 'barrierMap.txt');
 });
 
 const refreshButton = document.getElementById('refresh-button');
