@@ -1,4 +1,4 @@
-import { BarrierType, Direction } from './constants';
+import { BarrierType, Direction, CELLS_BY_SIDE } from './constants';
 
 const ExportDirectionMap = {
   [Direction.Top]: 0,
@@ -28,7 +28,7 @@ export class Exporter {
   getExportString() {
     const barriers = this.field.getBarriers();
     const barriersString = barriers.map(({ direction, position, type }) => {
-      const positionLine = `- position {x: ${position.x}, y: ${position.y}}\n`;
+      const positionLine = `- position: {x: ${position.x}, y: ${CELLS_BY_SIDE - position.y}}\n`;
       const directionLine = `direction: ${ExportDirectionMap[direction]}\n`;
       const barrierTypeLine = `barrierType: ${ExportBarrierTypeMap[type]}\n`;
       const mechanicalBarrierTypeLine = `mechanicalBarrierType: ${
