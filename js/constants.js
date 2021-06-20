@@ -9,22 +9,25 @@ export const Direction = {
 };
 
 export const BarrierType = {
-  Wooden: 0,
+  Iron: 0,
   Magic: 1,
-  Metallic1: 2,
-  Metallic2: 3,
+  Mechanical1: 2,
+  Mechanical2: 3,
+  Wooden: 4,
 };
 
 export const BarrierColorMap = {
-  [BarrierType.Wooden]: '#c46225',
+  [BarrierType.Iron]: '#fde650',
   [BarrierType.Magic]: '#fd50e4',
-  [BarrierType.Metallic1]: '#07aaf6',
-  [BarrierType.Metallic2]: '#00e339',
+  [BarrierType.Mechanical1]: '#07aaf6',
+  [BarrierType.Mechanical2]: '#00e339',
+  [BarrierType.Wooden]: '#c46225',
 };
 
 export const BarrierNameMap = {
-  [BarrierType.Wooden]: 'Деревянный',
+  [BarrierType.Iron]: 'Металлический',
   [BarrierType.Magic]: 'Магический',
-  [BarrierType.Metallic1]: 'Металлический 1',
-  [BarrierType.Metallic2]: 'Металлический 2',
+  [BarrierType.Mechanical1]: 'Мехнический 1',
+  [BarrierType.Mechanical2]: 'Мехнический 2',
+  [BarrierType.Wooden]: 'Деревянный',
 };

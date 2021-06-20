@@ -113,7 +113,7 @@ export class Field {
     const offsetY = Math.floor(sizeFloat * y);
 
     const barriers = Object.entries(barriersMap).sort((a) =>
-      a[1] === null ? -1 : 0
+      a[1] === null ? -1 : 1
     );
 
     barriers.forEach(([direction, data]) => {
