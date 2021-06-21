@@ -28,7 +28,9 @@ export class Exporter {
   getExportString() {
     const barriers = this.field.getBarriers();
     const barriersString = barriers.map(({ direction, position, type }) => {
-      const positionLine = `- position: {x: ${position.x}, y: ${CELLS_BY_SIDE - position.y}}\n`;
+      const positionLine = `- position: {x: ${position.x}, y: ${
+        CELLS_BY_SIDE - 1 - position.y
+      }}\n`;
       const directionLine = `direction: ${ExportDirectionMap[direction]}\n`;
       const barrierTypeLine = `barrierType: ${ExportBarrierTypeMap[type]}\n`;
       const mechanicalBarrierTypeLine = `mechanicalBarrierType: ${
