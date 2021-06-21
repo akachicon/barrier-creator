@@ -105,5 +105,6 @@ exportButton.addEventListener('click', () => {
 
 const refreshButton = document.getElementById('refresh-button');
 refreshButton.addEventListener('click', () => {
+  alert('Очистить поле?');
   field.reset();
 });
